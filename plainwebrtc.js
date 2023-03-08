@@ -1,4 +1,4 @@
-var conf = {iceServers: [{urls: ["stun:stun.l.google.com:19302"]}]};
+var conf = {iceServers: [{urls: ["stun:relay.metered.ca:80"]}]};
 var pc = new RTCPeerConnection(conf);
 var localStream, 
 	_fileChannel, 
