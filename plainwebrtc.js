@@ -1,4 +1,4 @@
-var conf = {iceServers: [{urls: ["stun:relay.metered.ca:80","stun:stun1.l.google.com:19302", "stun:stun2.l.google.com:19305" ]}]};
+var conf = {iceServers: [{urls: ["stun:stun1.l.google.com:19302", "stun:stun2.l.google.com:19305" ]}]};
 var pc = new RTCPeerConnection(conf);
 var	context, _chatChannel; 
 
@@ -96,5 +96,7 @@ function sendMsg(){
 	sendTxt.value="";
 	return false;
 }
+
+document.getElementById('sheets').src = "https://docs.google.com/spreadsheets/d/1T6B7ZnU1WhdX4po1tb_auyb3-B1CJ1bNd6byHPsZneE/edit?usp=sharing";
 
 //=======================================================================================================================================================
