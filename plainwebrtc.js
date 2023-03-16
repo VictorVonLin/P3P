@@ -3,7 +3,10 @@ var url = "https://script.google.com/macros/s/AKfycbz2guCH2a52rLP2iTYDeUMwZXiwe0
 var conf = {
 	 iceServers: [
       {
-        urls: "stun:relay.metered.ca:80",
+        urls: "stun:stun1.l.google.com:19302",
+      },
+      {
+        urls: "stun:stun2.l.google.com:19305",
       },
       {
         urls: "turn:relay.metered.ca:80",
