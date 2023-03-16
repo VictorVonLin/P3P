@@ -1,5 +1,4 @@
 var url = "https://script.google.com/macros/s/AKfycbz2guCH2a52rLP2iTYDeUMwZXiwe09rasTzufLNH6Ijw6JkHMtPxFlSBODptB-EGlWn/exec?callback"
-// var conf = {iceServers: [{urls: ["stun:stun1.l.google.com:19302", "stun:stun2.l.google.com:19305" ]}]};
 var conf = {
 	 iceServers: [
       {
@@ -8,23 +7,33 @@ var conf = {
       {
         urls: "stun:stun2.l.google.com:19305",
       },
-      {
-        urls: "turn:relay.metered.ca:80",
-        username: "0ed15aa73fad92108208a1ac",
-        credential: "gbTVHChOgU34H1II",
-      },
-      {
-        urls: "turn:relay.metered.ca:443",
-        username: "0ed15aa73fad92108208a1ac",
-        credential: "gbTVHChOgU34H1II",
-      },
-      {
-        urls: "turn:relay.metered.ca:443?transport=tcp",
-        username: "0ed15aa73fad92108208a1ac",
-        credential: "gbTVHChOgU34H1II",
-      },
   ],
 };
+// var conf = {
+// 	 iceServers: [
+//       {
+//         urls: "stun:stun1.l.google.com:19302",
+//       },
+//       {
+//         urls: "stun:stun2.l.google.com:19305",
+//       },
+//       {
+//         urls: "turn:relay.metered.ca:80",
+//         username: "0ed15aa73fad92108208a1ac",
+//         credential: "gbTVHChOgU34H1II",
+//       },
+//       {
+//         urls: "turn:relay.metered.ca:443",
+//         username: "0ed15aa73fad92108208a1ac",
+//         credential: "gbTVHChOgU34H1II",
+//       },
+//       {
+//         urls: "turn:relay.metered.ca:443?transport=tcp",
+//         username: "0ed15aa73fad92108208a1ac",
+//         credential: "gbTVHChOgU34H1II",
+//       },
+//   ],
+// };
 var pc = new RTCPeerConnection(conf);
 var	context, _chatChannel; 
 var protocol = true; //true for offer, false for answer
