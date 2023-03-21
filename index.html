@@ -1,58 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Firebase Realtime Database Test</title>
+	<title>P3P Testing</title>
+	<style type="text/css">
+		.sent{
+			color:blue;
+		}
+	</style>
+	<style type="text/css">
+		iframe{      
+			display: block;  /* iframes are inline by default */   
+			height: 35vh;  /* Set height to 100% of the viewport height */   
+			width: 80vw;  /* Set width to 100% of the viewport width */     
+			border: none; /* Remove default border */
+			background: lightyellow; /* Just for styling */
+		}</style>
 </head>
 <body>
-  <h1>Firebase Realtime Database Test</h1>
-  <ul id="users"></ul>
-  
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script>
-    // Initialize Firebase
-    var firebaseConfig = {
-       apiKey: "AIzaSyCTSeoyD9E-jp07mXCfmG3yveu8Rv8R9K0",
-       authDomain: "peerify-121.firebaseapp.com",
-       databaseURL: "https://peerify-121-default-rtdb.firebaseio.com",
-       projectId: "peerify-121",
-       storageBucket: "peerify-121.appspot.com",
-       messagingSenderId: "85937007914",
-       appId: "1:85937007914:web:153d3b0532a4d9c44e0253",
-       measurementId: "G-0358DSESS5"
-     };
-    firebase.initializeApp(firebaseConfig);
-    
-    // Get a reference to the database
-    var dbRef = firebase.database().ref('users');
-    
-    // Add the current user to the database
-    var currentUserRef = dbRef.push();
-    var currentUserKey = currentUserRef.key;
-    var currentUserData = {
-      name: 'User ' + currentUserKey,
-      lastSeen: Date.now()
-    };
-    currentUserRef.set(currentUserData);
-    
-    // Remove the current user from the database when the page is closed
-    currentUserRef.onDisconnect().remove();
-    
-    // Listen for changes in the user data
-    dbRef.on('value', function(snapshot) {
-      // Clear the list
-      var list = document.getElementById('users');
-      list.innerHTML = '';
-      
-      // Add each user to the list
-      snapshot.forEach(function(childSnapshot) {
-        var user = childSnapshot.val();
-        var li = document.createElement('li');
-        li.innerText = user.name + ' (last seen: ' + new Date(user.lastSeen).toLocaleString() + ')';
-        list.appendChild(li);
-      });
-    });
-  </script>
+
+
+<div>
+	<h4>LocalStream</h4>
+</div>
+<div>Local
+	<p>
+		<!-- <video width=250 id=local controls autoplay></video> -->
+		
+		<textarea rows="4" cols="50"  id=localOffer></textarea>
+		<button id=localOfferSet>CreateOffer</button>	
+	</p>	
+</div>
+<div>Remote
+	<p>
+		<!-- <video width=250 id=remote controls autoplay></video> -->
+		
+		<textarea id="remoteOffer" rows="4" cols="50" placeholder="Paste remote SDP"></textarea>
+		<button id=remoteOfferGot>Answer</button>
+	</p>	
+</div>
+<div id="chat" style="overflow:scroll;">
+	
+</div>
+<div>
+	<br><br>
+	<form action="" onsubmit="event.preventDefault();return sendMsg();">
+		<input id=sendTxt type="text" name="" placeholder="chat here" size="50">
+		<button type="submit">send</button>		
+	</form>
+</div>
+<div>
+	<iframe id = 'sheets'></iframe>
+</div>
+<script src="plainwebrtc.js"></script>
 </body>
 </html>
